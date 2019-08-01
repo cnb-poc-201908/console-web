@@ -1,5 +1,5 @@
 module.exports = {
-    baseUrl: './',
+    publicPath: '/console',
     assetsDir: 'static',
     productionSourceMap: false,
     // devServer: {

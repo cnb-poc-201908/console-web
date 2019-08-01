@@ -1,0 +1,125 @@
+{
+    "code": 200,
+    "message": "成功",
+    "data": [
+      {
+        "name": "BMW-PROGRESS-01",
+        "instance": [
+          {
+            "instanceId": "bmw-progress:20001",
+            "hostName": "192.168.0.63",
+            "app": "BMW-PROGRESS",
+            "ipAddr": "192.168.0.63",
+            "status": "UP",
+            "port": 20001,
+            "healthCheckUrl": "http://192.168.0.63:20001/actuator/health",
+            "vipAddress": "bmw-progress",
+            "lastUpdatedTimestamp": "1564636926041",
+            "lastDirtyTimestamp": "1564636925106"
+          }
+        ]
+      },
+      {
+        "name": "BMW-PROGRESS-02",
+        "instance": [
+          {
+            "instanceId": "bmw-progress:20002",
+            "hostName": "192.168.0.64",
+            "app": "BMW-PROGRESS",
+            "ipAddr": "192.168.0.64",
+            "status": "DOWN",
+            "port": 20002,
+            "healthCheckUrl": "http://192.168.0.64:20001/actuator/health",
+            "vipAddress": "bmw-progress",
+            "lastUpdatedTimestamp": "1564636926041",
+            "lastDirtyTimestamp": "1564636925106"
+          }
+        ]
+      },
+      {
+        "name": "BMW-PROGRESS-02",
+        "instance": [
+          {
+            "instanceId": "bmw-progress:20003",
+            "hostName": "192.168.0.65",
+            "app": "BMW-PROGRESS",
+            "ipAddr": "192.168.0.65",
+            "status": "DOWN",
+            "port": 20003,
+            "healthCheckUrl": "http://192.168.0.65:20001/actuator/health",
+            "vipAddress": "bmw-progress",
+            "lastUpdatedTimestamp": "1564636926041",
+            "lastDirtyTimestamp": "1564636925106"
+          }
+        ]
+      },
+      {
+        "name": "BMW-PROGRESS-03",
+        "instance": [
+          {
+            "instanceId": "bmw-progress:20004",
+            "hostName": "192.168.0.66",
+            "app": "BMW-PROGRESS",
+            "ipAddr": "192.168.0.66",
+            "status": "UP",
+            "port": 20005,
+            "healthCheckUrl": "http://192.168.0.66:20001/actuator/health",
+            "vipAddress": "bmw-progress",
+            "lastUpdatedTimestamp": "1564636926041",
+            "lastDirtyTimestamp": "1564636925106"
+          }
+        ]
+      },
+      {
+        "name": "BMW-PROGRESS-04",
+        "instance": [
+          {
+            "instanceId": "bmw-progress:20007",
+            "hostName": "192.168.0.67",
+            "app": "BMW-PROGRESS",
+            "ipAddr": "192.168.0.67",
+            "status": "UP",
+            "port": 20007,
+            "healthCheckUrl": "http://192.168.0.67:20001/actuator/health",
+            "vipAddress": "bmw-progress",
+            "lastUpdatedTimestamp": "1564636926041",
+            "lastDirtyTimestamp": "1564636925106"
+          }
+        ]
+      },
+      {
+        "name": "BMW-PROGRESS-05",
+        "instance": [
+          {
+            "instanceId": "bmw-progress:20008",
+            "hostName": "192.168.0.68",
+            "app": "BMW-PROGRESS",
+            "ipAddr": "192.168.0.68",
+            "status": "UP",
+            "port": 20008,
+            "healthCheckUrl": "http://192.168.0.68:20008/actuator/health",
+            "vipAddress": "bmw-progress",
+            "lastUpdatedTimestamp": "1564636926041",
+            "lastDirtyTimestamp": "1564636925106"
+          }
+        ]
+      },
+      {
+        "name": "BMW-SM",
+        "instance": [
+          {
+            "instanceId": "bmw-sm:20010",
+            "hostName": "192.168.0.63",
+            "app": "BMW-SM",
+            "ipAddr": "192.168.0.63",
+            "status": "UP",
+            "port": 20010,
+            "healthCheckUrl": "http://192.168.0.63:20010/actuator/health",
+            "vipAddress": "bmw-sm",
+            "lastUpdatedTimestamp": "1564637558693",
+            "lastDirtyTimestamp": "1564637558125"
+          }
+        ]
+      }
+    ]
+}
