@@ -39,10 +39,35 @@
                 collapse: false,
                 items: [
                     {
-                        icon: 'el-icon-lx-home',
-                        index: 'dashboard',
-                        title: 'Dashboard'
+                        icon: 'el-icon-s-platform',
+                        index: 'services-manager',
+                        title: '服务治理'
                     },
+                    {
+                        icon: 'el-icon-s-operation',
+                        index: 'dev-ops',
+                        title: 'DevOps'
+                    },
+                    {
+                        icon: 'el-icon-search',
+                        index: 'monitor',
+                        title: '监控'
+                    },
+                    {
+                        icon: 'el-icon-edit-outline',
+                        index: 'log',
+                        title: '日志'
+                    },
+                    {
+                        icon: 'el-icon-share',
+                        index: 'services-chain',
+                        title: '服务链路'
+                    },
+                    {
+                        icon: 'el-icon-message-solid',
+                        index: 'alert-event',
+                        title: '告警事件'
+                    }
                 ]
             }
         },

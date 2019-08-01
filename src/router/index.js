@@ -7,17 +7,42 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/dashboard'
+            redirect: '/services-manager'
         },
         {
             path: '/',
             component: resolve => require(['../components/common/Home.vue'], resolve),
-            meta: { title: '自述文件' },
+            meta: { title: '服务治理' },
             children:[
                 {
-                    path: '/dashboard',
-                    component: resolve => require(['../components/page/Dashboard.vue'], resolve),
-                    meta: { title: '系统首页' }
+                    path: '/services-manager',
+                    component: resolve => require(['../components/page/ServicesManager.vue'], resolve),
+                    meta: { title: '服务治理' }
+                },
+                {
+                    path: '/dev-ops',
+                    component: resolve => require(['../components/page/DevOps.vue'], resolve),
+                    meta: { title: 'DevOps' }
+                },
+                {
+                    path: '/monitor',
+                    component: resolve => require(['../components/page/Monitor.vue'], resolve),
+                    meta: { title: '监控' }
+                },
+                {
+                    path: '/log',
+                    component: resolve => require(['../components/page/LogWatcher.vue'], resolve),
+                    meta: { title: '日志' }
+                },
+                {
+                    path: '/services-chain',
+                    component: resolve => require(['../components/page/ServicesChain.vue'], resolve),
+                    meta: { title: '服务链路' }
+                },
+                {
+                    path: '/alert-event',
+                    component: resolve => require(['../components/page/AlertEvent.vue'], resolve),
+                    meta: { title: '告警事件' }
                 },
                 {
                     path: '/404',
