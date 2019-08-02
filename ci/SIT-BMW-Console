@@ -2,7 +2,6 @@
 node {   
 // '##################Creditial SETUP########################'
 def GIT_URL = 'git@github.com:bmw-poc/console-web.git'
-def GIT_CRED = 'gitcom-user-bchen'
 def E2E_GIT_URL = 'git@github.com:bmw-poc/test_selenium.git'
 def GIT_CRED = 'gitcom-user-bchen'
 
@@ -33,7 +32,7 @@ def customImage
 //################# CD PART ###################################
        stage("Build image and Deploy to Env "){
        docker.withRegistry(DOCKER_REG,DOCKER_REG_KEY){
-              customImage = docker.build(DOCKER_REPO + "/" + IMAGE_NAME)    
+              customImage = docker.build(DOCKER_REPO + "/" + IMAGE_NAME, "-f ci/Dockerfile .")    
               customImage.push(IMAGE_TAG)
             }
 	   sh "sed -i 's/{version}/" + IMAGE_TAG + "/g' ./ci/${env.JOB_NAME}.yaml"
