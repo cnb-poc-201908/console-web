@@ -90,7 +90,7 @@ import { log } from 'util';
         },
 
         async mounted() {
-            await this.$get("../services.json").then(
+            await this.$get("./services.json").then(
                 res=>{
                     if (res.code == 200) {
                         this.data = res.data;
