@@ -90,7 +90,8 @@ import { log } from 'util';
         },
 
         async mounted() {
-            await this.$get("./services.json").then(
+            const baseUrl = process.env.BASE_URL;
+            await this.$get(baseUrl + "services.json").then(
                 res=>{
                     if (res.code == 200) {
                         this.data = res.data;
@@ -110,7 +111,6 @@ import { log } from 'util';
                                 item.instance[0].lastUpdate = "";
                             }
                         })
-                        console.log(this.data)
                     }
                 },
                 err=>{

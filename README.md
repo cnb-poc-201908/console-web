@@ -19,4 +19,4 @@ npm run build
 
 ## VERSION
 
-20190802149
+20190802204
