@@ -49,8 +49,7 @@
 <script>
     import Schart from 'vue-schart';
     import bus from '../common/bus';
-import { log } from 'util';
-
+    import apis from '../../api/index';
 
     export default {
         data() {
@@ -90,8 +89,7 @@ import { log } from 'util';
         },
 
         async mounted() {
-            const baseUrl = process.env.BASE_URL;
-            await this.$get(baseUrl + "services.json").then(
+            await this.$get(apis.baseUrl + "services.json").then(
                 res=>{
                     if (res.code == 200) {
                         this.data = res.data;
@@ -165,5 +163,5 @@ import { log } from 'util';
         color: #c1c1c1;
         font-size: 12px;
     }
-    
+
 </style>
