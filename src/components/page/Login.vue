@@ -43,8 +43,16 @@
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        localStorage.setItem('ms_username',this.ruleForm.username);
-                        this.$router.push('/');
+                        if (this.ruleForm.username === 'admin' &&
+                            this.ruleForm.password === 'admin') {
+                            localStorage.setItem('ms_username',this.ruleForm.username);
+                            this.$router.push('/');
+                        } else {
+                            this.$message({
+                                message: '用户名密码错误，请重新输入',
+                                type: 'error'
+                            });
+                        }
                     } else {
                         console.log('error submit!!');
                         return false;
