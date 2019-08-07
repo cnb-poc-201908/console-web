@@ -1,55 +1,63 @@
 <template>
-    <div>
-        <el-row v-for="(page, index) of pages" :key="index" >
-            <el-col :span="6" v-for="(item, innerindex) of page" :key="item.projectId" :offset="innerindex > 0 ? 2 : 1">
-                <el-card shadow="hover" class="box-card" style="height:222px;">
-                    <div slot="header" class="clearfix">
-                        <span><i class="el-icon-s-tools primary-indicator"></i>&nbsp;{{item.name}}</span>
-                        <i v-if="item.instance[0].status === 'UP'" class="el-icon-success success-indicator"></i>
-                        <i v-else class="el-icon-error error-indicator"></i>
-                    </div>
-                    <div class="text-item">
-                        <div>
-                            <div style="display:inline;width:30%">实例数量：</div>
-                            <div style="display:inline;width:70%;float:right">{{item.instance.length}}</div>
-                        </div>
-                        <p></p>
-                        <div>
-                            <div style="display:inline;width:30%">实例标识：</div>
-                            <div style="display:inline;width:70%;float:right">{{item.instance[0].instanceId}}</div>
-                        </div>
-                        <p></p>
-                        <div>
-                            <div style="display:inline;width:30%">主机地址：</div>
-                            <div style="display:inline;width:70%;float:right">{{item.instance[0].hostName}}</div>
-                        </div>
-                        <p></p>
-                        <div>
-                            <div style="display:inline;width:30%">应用名称：</div>
-                            <div style="display:inline;width:70%;float:right">{{item.instance[0].app}}</div>
-                        </div>
-                        <p></p>
-                        <div>
-                            <div style="display:inline;width:30%">IP地址：</div>
-                            <div style="display:inline;width:70%;float:right">{{item.instance[0].ipAddr}}</div>
-                        </div>
-                        <p></p>
-                        <div>
-                            <div style="display:inline;width:30%">更新时间：</div>
-                            <div style="display:inline;width:70%;float:right">{{item.instance[0].lastUpdate}}</div>
-                        </div>
-                    </div>
-                </el-card>
-            </el-col>
-        </el-row>
-       
-    </div>
+  <div>
+    <el-row v-for="(page, index) of pages" :key="index">
+      <el-col
+        :span="6"
+        v-for="(item, innerindex) of page"
+        :key="item.projectId"
+        :offset="innerindex > 0 ? 2 : 1"
+      >
+        <el-card shadow="hover" class="box-card" style="height:222px;">
+          <div slot="header" class="clearfix">
+            <span>
+              <i class="el-icon-s-tools primary-indicator"></i>
+              &nbsp;{{item.name}}
+            </span>
+            <i v-if="item.instance[0].status === 'UP'" class="el-icon-success success-indicator"></i>
+            <i v-else class="el-icon-error error-indicator"></i>
+          </div>
+          <div class="text-item">
+            <div>
+              <div style="display:inline;width:30%">实例数量：</div>
+              <div style="display:inline;width:70%;float:right">{{item.instance.length}}</div>
+            </div>
+            <p></p>
+            <div>
+              <div style="display:inline;width:30%">实例标识：</div>
+              <div style="display:inline;width:70%;float:right">{{item.instance[0].instanceId}}</div>
+            </div>
+            <p></p>
+            <div>
+              <div style="display:inline;width:30%">主机地址：</div>
+              <div style="display:inline;width:70%;float:right">{{item.instance[0].hostName}}</div>
+            </div>
+            <p></p>
+            <div>
+              <div style="display:inline;width:30%">应用名称：</div>
+              <div style="display:inline;width:70%;float:right">{{item.instance[0].app}}</div>
+            </div>
+            <p></p>
+            <div>
+              <div style="display:inline;width:30%">IP地址：</div>
+              <div style="display:inline;width:70%;float:right">{{item.instance[0].ipAddr}}</div>
+            </div>
+            <p></p>
+            <div>
+              <div style="display:inline;width:30%">更新时间：</div>
+              <div style="display:inline;width:70%;float:right">{{item.instance[0].lastUpdate}}</div>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
     import Schart from 'vue-schart';
     import bus from '../common/bus';
     import apis from '../../api/index';
+    import axios from "axios";
 
     export default {
         data() {
@@ -121,7 +129,11 @@
 //             )
 //         }
 mounted() {
-    axios({ method: "GET", "url": "http://bmwpoc.cdkapps.cn:30090/sm/api/v1/apps" }).then(
+    axios.get('http://bmwpoc.cdkapps.cn:30090/sm/api/v1/apps', 
+    {
+ headers: {
+   'Access-Control-Allow-Origin': '*'
+ }}).then(
          res=>{
                     if (res.code == 200) {
                         this.data = res.data;
@@ -143,54 +155,53 @@ mounted() {
                         })
                     }
                 }, error => {
-                console.error(error);
+                console.log(error)
             });
+    }
     }
 
 </script>
 
 
 <style scoped>
-    .el-row {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+.el-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
-    .el-card.is-hover-shadow:hover {
-        box-shadow:0 2px 12px 0 rgba(0,0,0,0.5);
-    }
+.el-card.is-hover-shadow:hover {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
+}
 
-    .box-card {
-        width: 260px;
-    }
+.box-card {
+  width: 260px;
+}
 
-    .clearfix {
-        font-size: 14px;
-    }
+.clearfix {
+  font-size: 14px;
+}
 
+.primary-indicator {
+  color: #409eff;
+  font-size: 16px;
+}
 
-    .primary-indicator {
-        color:#409EFF;
-        font-size: 16px;
-    }
+.success-indicator {
+  float: right;
+  padding: 3px0;
+  color: #67c23a;
+  font-size: 20px;
+}
 
-    .success-indicator {
-        float:right;
-        padding:3px0;
-        color:#67C23A;
-        font-size: 20px;
-    }
+.error-indicator {
+  float: right;
+  padding: 3px0;
+  color: #f56c6c;
+  font-size: 20px;
+}
 
-    .error-indicator {
-        float:right;
-        padding:3px0;
-        color:#F56C6C;
-        font-size: 20px;
-    }
-
-    .text-item {
-        color: #c1c1c1;
-        font-size: 12px;
-    }
-
+.text-item {
+  color: #c1c1c1;
+  font-size: 12px;
+}
 </style>
