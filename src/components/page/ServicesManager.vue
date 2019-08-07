@@ -90,7 +90,7 @@
 
         async mounted() {
             // await this.$get(apis.baseUrl + "services.json").then(
-            await this.$get('http://sales-gw-service:9000/sm/api/v1/apps').then(
+            await this.$get('http://bmwpoc.cdkapps.cn:30090/sm/api/v1/apps').then(
                 res=>{
                     if (res.code == 200) {
                         this.data = res.data;
