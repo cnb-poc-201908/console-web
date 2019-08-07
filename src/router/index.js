@@ -35,6 +35,11 @@ export default new Router({
                     meta: { title: '日志' }
                 },
                 {
+                    path: '/quarlity',
+                    component: resolve => require(['../components/page/Sonarqube.vue'], resolve),
+                    meta: { title: '质量管理' }
+                },
+                {
                     path: '/services-chain',
                     component: resolve => require(['../components/page/ServicesChain.vue'], resolve),
                     meta: { title: '服务链路' }
