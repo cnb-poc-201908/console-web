@@ -88,13 +88,41 @@
             }
         },
 
-        async mounted() {
-            let headers = {
-    'Access-Control-Allow-Origin': '*'
-  };
-            // await this.$get(apis.baseUrl + "services.json").then(
-            await this.$get('http://bmwpoc.cdkapps.cn:30090/sm/api/v1/apps', {headers}).then(
-                res=>{
+//         async mounted() {
+//             let headers = {
+//     'Access-Control-Allow-Origin': '*'
+//   };
+//             // await this.$get(apis.baseUrl + "services.json").then(
+//             await this.$get('http://bmwpoc.cdkapps.cn:30090/sm/api/v1/apps', {headers}).then(
+//                 res=>{
+//                     if (res.code == 200) {
+//                         this.data = res.data;
+//                         this.data.forEach(item=>{
+//                             if (item.instance[0].lastUpdatedTimestamp && item.instance[0].lastUpdatedTimestamp != '') {
+//                                 const dt = new Date(parseInt(item.instance[0].lastUpdatedTimestamp))
+//                                 const year = dt.getFullYear()
+//                                 const month = dt.getMonth() + 1
+//                                 const day = dt.getDate()
+//                                 const hour = dt.getHours()
+//                                 const minute = dt.getMinutes()
+//                                 const second = dt.getSeconds()
+
+//                                 const dtStr = [year, month, day].map(this.formatNumber).join('-') + ' ' + [hour, minute, second].map(this.formatNumber).join(':')
+//                                 item.instance[0].lastUpdate = dtStr;
+//                             } else {
+//                                 item.instance[0].lastUpdate = "";
+//                             }
+//                         })
+//                     }
+//                 },
+//                 err=>{
+//                     console.log(JSON.stringify(err))
+//                 }
+//             )
+//         }
+mounted() {
+    axios({ method: "GET", "url": "http://bmwpoc.cdkapps.cn:30090/sm/api/v1/apps" }).then(
+         res=>{
                     if (res.code == 200) {
                         this.data = res.data;
                         this.data.forEach(item=>{
@@ -114,12 +142,9 @@
                             }
                         })
                     }
-                },
-                err=>{
-                    console.log(JSON.stringify(err))
-                }
-            )
-        }
+                }, error => {
+                console.error(error);
+            });
     }
 
 </script>
