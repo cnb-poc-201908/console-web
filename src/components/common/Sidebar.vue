@@ -59,6 +59,11 @@
                         title: '日志'
                     },
                     {
+                        icon: 'el-icon-files',
+                        index: 'quarlity',
+                        title: '质量管理'
+                    },
+                    {
                         icon: 'el-icon-share',
                         index: 'services-chain',
                         title: '服务链路'
